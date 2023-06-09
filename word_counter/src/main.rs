@@ -11,7 +11,7 @@ fn main() {
     }
     let file_path = &args[1];
     let contents = read_to_string(file_path).expect("Could not open file");
-    //let mut counter = WordCounter::default();
-    //counter.insert(&contents);
-    //counter.print();
+    let mut counter = WordCounter::default();
+    counter.insert(&contents);
+    counter.print();
 }

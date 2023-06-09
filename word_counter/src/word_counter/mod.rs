@@ -30,9 +30,6 @@ impl WordCounter{
         for ch in word.chars() {
             if !ch.is_alphanumeric() {
                 if !s.is_empty() {
-                    if self.get_count(&s) == MAX {
-                        panic!("Overflow");
-                    }
                     self.increment_count(s);
                 }
                 s = String::default();
