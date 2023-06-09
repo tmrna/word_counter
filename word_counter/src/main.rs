@@ -1,5 +1,8 @@
 use std::{env, fs::read_to_string, process::exit};
 
+mod word_counter;
+use word_counter::WordCounter;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
