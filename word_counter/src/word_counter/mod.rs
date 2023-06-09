@@ -1,6 +1,9 @@
 use std::collections::{HashMap, BinaryHeap};
 use std::u128::MAX;
 
+mod string_u128;
+use string_u128::StringU128;
+
 #[derive(Debug, Default)]
 pub struct WordCounter{
     map: HashMap<String, u128>,
@@ -40,6 +43,21 @@ impl WordCounter{
         }
         if !s.is_empty() {
            self.increment_count(s); 
+        }
+    }
+
+    pub fn print(&self) {
+        let mut q: BinaryHeap<StringU128> = BinaryHeap::default();
+        for (key, value) in &self.map {
+            q.push(StringU128::new(key, value));
+        }
+        while !q.is_empty() {
+            println!(
+            "{} : {}",
+                q.peek().as_deref().unwrap().get_string(),
+                q.pop().unwrap().get_count()
+            );
+            
         }
     }
 }
